@@ -19,7 +19,6 @@ public:
 	// Sets default values for this pawn's properties
 	ARTSCameraPawn();
 	
-private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	USceneComponent* SceneComponent;
 
@@ -45,5 +44,4 @@ private:
 
 	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	bool EnableRotate;
-
 };
