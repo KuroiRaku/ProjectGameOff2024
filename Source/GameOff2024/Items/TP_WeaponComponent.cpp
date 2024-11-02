@@ -23,16 +23,15 @@ UTP_WeaponComponent::UTP_WeaponComponent()
 
 void UTP_WeaponComponent::Fire()
 {
-	if (Character == nullptr || Character->GetController() == nullptr)
+	if (!IsValid(Character) || !IsValid(Character->GetController()))
 	{
 		return;
 	}
 
 	// Try and fire a projectile
-	if (ProjectileClass != nullptr)
+	if (IsValid(ProjectileClass))
 	{
-		UWorld* const World = GetWorld();
-		if (World != nullptr)
+		if (UWorld* const World = GetWorld(); IsValid(World))
 		{
 			APlayerController* PlayerController = Cast<APlayerController>(Character->GetController());
 			const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
@@ -49,17 +48,16 @@ void UTP_WeaponComponent::Fire()
 	}
 	
 	// Try and play the sound if specified
-	if (FireSound != nullptr)
+	if (IsValid(FireSound))
 	{
 		UGameplayStatics::PlaySoundAtLocation(this, FireSound, Character->GetActorLocation());
 	}
 	
 	// Try and play a firing animation if specified
-	if (FireAnimation != nullptr)
+	if (IsValid(FireAnimation))
 	{
 		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Character->GetMesh1P()->GetAnimInstance();
-		if (AnimInstance != nullptr)
+		if (UAnimInstance* AnimInstance = Character->GetMesh1P()->GetAnimInstance(); IsValid(AnimInstance))
 		{
 			AnimInstance->Montage_Play(FireAnimation, 1.f);
 		}
@@ -71,28 +69,31 @@ bool UTP_WeaponComponent::AttachWeapon(AGameOff2024Character* TargetCharacter)
 	Character = TargetCharacter;
 
 	// Check that the character is valid, and has no weapon component yet
-	if (Character == nullptr || Character->GetInstanceComponents().FindItemByClass<UTP_WeaponComponent>())
+	if (!IsValid(Character) || Character->GetInstanceComponents().FindItemByClass<UTP_WeaponComponent>())
 	{
 		return false;
 	}
 
 	// Attach the weapon to the First Person Character
-	FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
+	const FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
 	AttachToComponent(Character->GetMesh1P(), AttachmentRules, FName(TEXT("GripPoint")));
 
 	// add the weapon as an instance component to the character
 	Character->AddInstanceComponent(this);
 
 	// Set up action bindings
-	if (APlayerController* PlayerController = Cast<APlayerController>(Character->GetController()))
+	const APlayerController* PlayerController = Cast<APlayerController>(Character->GetController()); 
+	if (IsValid(PlayerController))
 	{
-		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer());
+		if (IsValid(Subsystem))
 		{
 			// Set the priority of the mapping to 1, so that it overrides the Jump action with the Fire action when using touch input
 			Subsystem->AddMappingContext(FireMappingContext, 1);
 		}
 
-		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
+		UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent);
+		if (IsValid(EnhancedInputComponent))
 		{
 			// Fire
 			EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Triggered, this, &UTP_WeaponComponent::Fire);
@@ -104,14 +105,16 @@ bool UTP_WeaponComponent::AttachWeapon(AGameOff2024Character* TargetCharacter)
 
 void UTP_WeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
-	if (Character == nullptr)
+	if (IsValid(Character))
 	{
 		return;
 	}
 
-	if (APlayerController* PlayerController = Cast<APlayerController>(Character->GetController()))
+	APlayerController* PlayerController = Cast<APlayerController>(Character->GetController());
+	if (IsValid(PlayerController))
 	{
-		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer());
+		if (IsValid(Subsystem))
 		{
 			Subsystem->RemoveMappingContext(FireMappingContext);
 		}

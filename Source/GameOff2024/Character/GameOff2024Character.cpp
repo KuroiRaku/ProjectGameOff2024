@@ -47,7 +47,8 @@ void AGameOff2024Character::BeginPlay()
 void AGameOff2024Character::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {	
 	// Set up action bindings
-	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent))
+	UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent);
+	if (IsValid(EnhancedInputComponent))
 	{
 		// Jumping
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &ACharacter::Jump);
@@ -65,9 +66,9 @@ void AGameOff2024Character::SetupPlayerInputComponent(UInputComponent* PlayerInp
 void AGameOff2024Character::Move(const FInputActionValue& Value)
 {
 	// input is a Vector2D
-	FVector2D MovementVector = Value.Get<FVector2D>();
+	const FVector2D MovementVector = Value.Get<FVector2D>();
 
-	if (Controller != nullptr)
+	if (IsValid(Controller))
 	{
 		// add movement 
 		AddMovementInput(GetActorForwardVector(), MovementVector.Y);
@@ -78,9 +79,9 @@ void AGameOff2024Character::Move(const FInputActionValue& Value)
 void AGameOff2024Character::Look(const FInputActionValue& Value)
 {
 	// input is a Vector2D
-	FVector2D LookAxisVector = Value.Get<FVector2D>();
+	const FVector2D LookAxisVector = Value.Get<FVector2D>();
 
-	if (Controller != nullptr)
+	if (IsValid(Controller))
 	{
 		// add yaw and pitch input to controller
 		AddControllerYawInput(LookAxisVector.X);

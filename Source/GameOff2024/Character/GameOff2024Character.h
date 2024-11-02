@@ -41,7 +41,7 @@ protected:
 	void Look(const FInputActionValue& Value);
 
 	// APawn interface
-	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
+	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
 
 private:
