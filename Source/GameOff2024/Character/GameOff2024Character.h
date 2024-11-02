@@ -32,7 +32,7 @@ public:
 	class UInputAction* LookAction;
 
 protected:
-	virtual void BeginPlay();
+	virtual void BeginPlay() override;
 
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);
