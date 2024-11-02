@@ -5,7 +5,7 @@
 #include "Components/CapsuleComponent.h"
 #include "Engine/LocalPlayer.h"
 #include "StatsComponent.h"
-#include "InventoryComponent.h"
+#include "Items/InventoryComponent.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 

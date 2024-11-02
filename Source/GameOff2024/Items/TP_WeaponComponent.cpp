@@ -2,8 +2,8 @@
 
 
 #include "TP_WeaponComponent.h"
-#include "GameOff2024Character.h"
-#include "GameOff2024Projectile.h"
+#include "Character/GameOff2024Character.h"
+#include "Magic/GameOff2024Projectile.h"
 #include "GameFramework/PlayerController.h"
 #include "Camera/PlayerCameraManager.h"
 #include "Kismet/GameplayStatics.h"
