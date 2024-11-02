@@ -6,7 +6,6 @@
 #include "Components/ActorComponent.h"
 #include "StatsComponent.generated.h"
 
-
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class GAMEOFF2024_API UStatsComponent : public UActorComponent
 {

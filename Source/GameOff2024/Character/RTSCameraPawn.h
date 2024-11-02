@@ -15,6 +15,11 @@ class GAMEOFF2024_API ARTSCameraPawn : public APawn
 {
 	GENERATED_BODY()
 
+public:
+	// Sets default values for this pawn's properties
+	ARTSCameraPawn();
+	
+private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	USceneComponent* SceneComponent;
 
@@ -41,7 +46,4 @@ class GAMEOFF2024_API ARTSCameraPawn : public APawn
 	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	bool EnableRotate;
 
-public:
-	// Sets default values for this pawn's properties
-	ARTSCameraPawn();
 };

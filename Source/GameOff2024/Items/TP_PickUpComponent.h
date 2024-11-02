@@ -17,12 +17,11 @@ class GAMEOFF2024_API UTP_PickUpComponent : public USphereComponent
 	GENERATED_BODY()
 
 public:
+	UTP_PickUpComponent();
 	
 	/** Delegate to whom anyone can subscribe to receive this event */
 	UPROPERTY(BlueprintAssignable, Category = "Interaction")
 	FOnPickUp OnPickUp;
-
-	UTP_PickUpComponent();
 protected:
 
 	/** Called when the game starts */

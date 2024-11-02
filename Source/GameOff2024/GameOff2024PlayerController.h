@@ -23,7 +23,6 @@ protected:
 	UInputMappingContext* InputMappingContext;
 
 	// Begin Actor interface
-protected:
 
 	virtual void BeginPlay() override;
 
