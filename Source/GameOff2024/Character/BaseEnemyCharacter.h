@@ -22,8 +22,6 @@ public:
 	
 	virtual void Tick(float DeltaSeconds) override;
 private:
-	UPROPERTY(EditAnywhere)
-	UBlackboardComponent* BlackboardComponent;
 
 	UPROPERTY(EditAnywhere)
 	UAIPerceptionComponent* PerceptionComponent;
