@@ -2,6 +2,7 @@
 
 #include "BaseCharacter.h"
 #include "Animation/AnimInstance.h"
+#include "BehaviorTree/BehaviorTree.h"
 #include "Components/CapsuleComponent.h"
 #include "Engine/LocalPlayer.h"
 #include "StatsComponent.h"

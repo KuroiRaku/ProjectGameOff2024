@@ -1,5 +1,6 @@
 #include "BaseAIController.h"
 
+#include "BaseCharacter.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "Perception/AIPerceptionComponent.h"
@@ -19,16 +20,31 @@ ABaseAIController::ABaseAIController()
 void ABaseAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if(IsValid(BehaviorTree))
-	{
-		RunBehaviorTree(BehaviorTree);
-	}
 }
 
 // Called when the game starts or when spawned
 void ABaseAIController::BeginPlay()
 {
 	Super::BeginPlay();
+	if (IsValid(BehaviorTree))
+	{
+		RunBehaviorTree(BehaviorTree);
+	}
+}
+
+void ABaseAIController::OnPossess(APawn* InPawn)
+{
+	Super::OnPossess(InPawn);
+	if (ABaseCharacter* const character = Cast<ABaseCharacter>(InPawn))
+	{
+		if (IsValid(character->Tree))
+		{
+			UBlackboardComponent* blackboard;
+			UseBlackboard(character->Tree->BlackboardAsset, blackboard);
+			Blackboard = blackboard;
+			RunBehaviorTree(character->Tree);
+		}
+	}
 }
 
 

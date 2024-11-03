@@ -24,7 +24,7 @@ UENUM(BlueprintType)
 enum class EMagicSpeed : uint8
 {
 	Fast UMETA(DisplayName = "Fast"),
-	Standard UMETA(DisplayName = "Standart"),
+	Standard UMETA(DisplayName = "Standard"),
 	Slow UMETA(DisplayName = "Slow"),
 	Stationary UMETA(DisplayName = "Stationary")
 };
