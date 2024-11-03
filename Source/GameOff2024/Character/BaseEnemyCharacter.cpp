@@ -1,16 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "BaseEnemyCharacter.h"
 
-#include "AIController.h"
-#include "Perception/AIPerceptionComponent.h"
+#include "BaseAIController.h"
+#include "Components/CapsuleComponent.h"
 
 ABaseEnemyCharacter::ABaseEnemyCharacter()
 {
-	PerceptionComponent = CreateDefaultSubobject<UAIPerceptionComponent>("PerceptionComponent");
-	Controller = CreateDefaultSubobject<AAIController>("AIController");
-
 	// Create a mesh component that will be used when being viewed from a '1st person' view (when controlling this pawn)
 	SkeletalMesh->SetupAttachment(GetCapsuleComponent());
 	SkeletalMesh->bCastDynamicShadow = false;
@@ -23,3 +19,10 @@ void ABaseEnemyCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
 }
+
+void ABaseEnemyCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+}
+

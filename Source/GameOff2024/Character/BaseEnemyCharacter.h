@@ -6,10 +6,6 @@
 #include "BaseCharacter.h"
 #include "BaseEnemyCharacter.generated.h"
 
-class UAIPerceptionComponent;
-class UBlackboardComponent;
-class AAIController;
-
 /**
  * 
  */
@@ -19,10 +15,8 @@ class GAMEOFF2024_API ABaseEnemyCharacter : public ABaseCharacter
 	GENERATED_BODY()
 public:
 	ABaseEnemyCharacter();
-	
-	virtual void Tick(float DeltaSeconds) override;
-private:
 
-	UPROPERTY(EditAnywhere)
-	UAIPerceptionComponent* PerceptionComponent;
+	virtual void Tick(float DeltaSeconds) override;
+protected:
+	virtual void BeginPlay() override;
 };
