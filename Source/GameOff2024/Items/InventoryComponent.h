@@ -9,7 +9,7 @@
 
 // This is the loadout
 // When we open loadup screen, they should be able to get every information in this class
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(Blueprintable, BlueprintType, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class GAMEOFF2024_API UInventoryComponent : public UActorComponent
 {
 	GENERATED_BODY()

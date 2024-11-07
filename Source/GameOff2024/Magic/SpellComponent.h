@@ -7,7 +7,7 @@
 #include "SpellComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(Blueprintable, BlueprintType, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class GAMEOFF2024_API USpellComponent : public UActorComponent
 {
 	GENERATED_BODY()
