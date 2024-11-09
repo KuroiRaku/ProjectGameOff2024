@@ -18,6 +18,8 @@ class GAMEOFF2024_API ARTSCameraPawn : public APawn
 public:
 	// Sets default values for this pawn's properties
 	ARTSCameraPawn();
+
+virtual void Tick(float DeltaSeconds) override;
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	USceneComponent* SceneComponent;

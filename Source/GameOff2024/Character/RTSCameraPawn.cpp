@@ -3,6 +3,7 @@
 #include "RTSCameraPawn.h"
 #include "BaseCharacter.h"
 #include "Camera/CameraComponent.h"
+#include "GameFramework/PawnMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
 // Sets default values
@@ -23,4 +24,18 @@ ARTSCameraPawn::ARTSCameraPawn()
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
 	CameraComponent->SetupAttachment(SpringArmComponent);
 }
+
+void ARTSCameraPawn::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+
+	const FVector MovementVector = GetMovementComponent()->GetLastInputVector();
+	if(!MovementVector.IsNearlyZero())
+	{
+		AddActorLocalOffset(MovementVector * DeltaSeconds);
+	}
+}
+
+
+
 
