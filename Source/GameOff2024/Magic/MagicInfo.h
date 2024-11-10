@@ -147,6 +147,9 @@ struct FSpellSizePropertyData : public FTableRowBase
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float CooldownTime;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float ScaleMultiplier;
 };
 
 USTRUCT(BlueprintType)
@@ -237,4 +240,7 @@ struct FSpellPropertyData : public FTableRowBase
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float CooldownTime;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float ScaleMultiplier;
 };
