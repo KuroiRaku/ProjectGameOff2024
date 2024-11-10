@@ -46,6 +46,9 @@ public:
 
 	UPROPERTY(BlueprintReadOnly)
 	ACharacter* SelectedCharacter;
-	
+
+	UPROPERTY(EditAnywhere)
 	double Speed = 300;
+	UPROPERTY(BlueprintReadWrite)
+	bool Attached;
 };

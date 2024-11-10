@@ -39,7 +39,8 @@ void ACameraController::SelectCharacter(const FInputActionValue& Value) {
 
 
 void ACameraController::Move(const FInputActionValue& Value) {
-	GetPawn()->GetMovementComponent()->AddInputVector(Value.Get<FVector>() * Speed);	
+	if(!Attached)
+		GetPawn()->GetMovementComponent()->AddInputVector(Value.Get<FVector>() * Speed);	
 }
 
 void ACameraController::AttachCamera()
