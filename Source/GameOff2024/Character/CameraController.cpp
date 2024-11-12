@@ -67,11 +67,11 @@ void ACameraController::BeginPlay()
 
 	PrimaryActorTick.bCanEverTick = true;
 	EnableInput(this);
-	SetShowMouseCursor(true);
+	/*SetShowMouseCursor(true);
 
 	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
 	{
 		Subsystem->AddMappingContext(InputMapping, 1000000);
-	}
+	}*/
 
 }
