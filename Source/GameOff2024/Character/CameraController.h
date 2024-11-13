@@ -44,10 +44,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = "Input", meta = (AllowPrivateAccess="true"))
 	UInputAction* AttachCameraAction;
 
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadWrite)
 	ACharacter* SelectedCharacter;
-
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float TimeCharacterWasSelected;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	double Speed = 300;
 	UPROPERTY(BlueprintReadWrite)
 	bool Attached;

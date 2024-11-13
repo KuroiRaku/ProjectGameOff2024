@@ -9,8 +9,10 @@
 #include "GameFramework/Character.h"
 #include "GameFramework/PawnMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "GameTime.h"
 
 ACameraController::ACameraController()
+	: TimeCharacterWasSelected(0.0f)
 {
 	InputComponent = CreateDefaultSubobject<UEnhancedInputComponent>("InputComponent");
 }
@@ -34,6 +36,7 @@ void ACameraController::SelectCharacter(const FInputActionValue& Value) {
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red, FString::Printf(TEXT("Selected character %s"), *TentativeSelection->GetName()));
 		SelectedCharacter = TentativeSelection;
+		TimeCharacterWasSelected = (float)GetWorld()->GetTimeSeconds();
 	}
 }
 
