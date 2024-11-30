@@ -23,7 +23,10 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	FHitResult Hit();
+	UFUNCTION(BlueprintNativeEvent)
 	void SelectCharacter(const FInputActionValue& Value);
+
+	void SelectCharacter_Implementation(const FInputActionValue& Value);
 	void Move(const FInputActionValue& Instance);
 	void AttachCamera();
 
