@@ -29,7 +29,7 @@ FHitResult ACameraController::Hit()
 	return Out;
 }
 
-void ACameraController::SelectCharacter(const FInputActionValue& Value) {
+void ACameraController::SelectCharacter_Implementation(const FInputActionValue& Value) {
 	auto HitActor = Hit().GetActor();
 	
 	if(auto* TentativeSelection = Cast<ACharacter>(HitActor); IsValid(TentativeSelection))
