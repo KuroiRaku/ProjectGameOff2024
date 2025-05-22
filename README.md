@@ -9,8 +9,9 @@ The game is set in a village occupied by villagers and villains. As you enter it
 * Ability to alternate between first-person mode and top-down mode
 * Ability to customize spells and use different spell combinations to counterattack the spells casted on you by enemies
 * Ability to use certain spells to heal yourself
-* Ally AI can assist in combat using adaptive spellcasting
-* AI enemies will chase and strongly react to your presence
+* Ally AI can assist in combat using spells to counterattack the spells casted by enemies
+* AI enemies will detect player from a distance and will cast long-range spells
+* AI enemies will also chase player
 * Cooldown delay between the casting of each magic spell
 * Dynamic missions triggered by exploring different areas, with two possible game endings based on your success
 
@@ -18,12 +19,13 @@ The game is set in a village occupied by villagers and villains. As you enter it
 * Hash map structure to manage music selection in the Music Manager blueprint
   * Used to avoid multiple booleans checked every frame
   * Used to facilitate the search of each music Value with a Key
-* Data tables and enums to manage the spells in the SpellBook blueprint
-  * Used to make a data-oriented system to enable level and narrative designers to update content dynamically based on enum-driven IDs
-* Bubble sort algorithm in the SpellBook blueprint
-  * Used to sort the spells appearing in each SpellBook in the order in which they appear in the Spell widget
+* Arrays, data tables and enums to manage the spells in the SkillBook blueprint
+  * Used to make a data-oriented system to allow level and narrative designers to update content dynamically based on enum-driven IDs
+* Bubble sort algorithm in the SkillBook blueprint
+  * Used to sort the spells appearing in each SkillBook in the order in which they appear in the Loadout widget
 * Graph structure to manage the game endings in the GameEndingsManager blueprint (each game ending can be triggered by one or more missions)
-  * 
+  * Used to efficiently store the completed missions and check if a ending is unlocked or not
+  * Used 2 Maps: one to store the completed missions, and another one to store the game endings, also acting as a graph node, with a boolean "Unlocked"
 
 
 ## Bugs to fix/features to add
