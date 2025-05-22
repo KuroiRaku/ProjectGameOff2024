@@ -27,7 +27,12 @@ The game is set in a village occupied by villagers and villains. As you enter it
   * Used to efficiently store the completed missions and check if a ending is unlocked or not
   * Used 2 Maps: one to store the completed missions, and another one to store the game endings, also acting as a graph node, with a boolean "Unlocked"
 
+## Files
+* **Data structures and algorithms integrated to SteamBound.pdf**: Detailed report on the changes that I made to the game, with explanations and code snippets for each data structure and algorithm
 
 ## Bugs to fix/features to add
+* The checkpoints are not working correctly: when you go back to a checkpoint, the character cannot use the mouse to turn around and move properly
+* The enemies shoot at their own allies
+* Add the town statistics to show the happiness level
 * 
 
