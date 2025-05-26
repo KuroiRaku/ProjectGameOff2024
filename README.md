@@ -9,9 +9,9 @@ The game is set in a village occupied by villagers and villains. As you enter it
 
 ## Features
 * Ability to alternate between first-person mode and top-down mode
-* Ability to customize spells and use different spell combinations to counterattack the spells casted on you by enemies
-* Ability to use certain spells to heal yourself
-* Ally AI can assist in combat using spells to counterattack the spells casted by enemies
+* Ability to customize spells and use different spell combinations to fight enemies and counter enemy attacks
+* Ability to adjust spell attributes solely to heal yourself
+* Ally AI can assist in combat using spells to counter the spells casted by enemies
 * AI enemies will detect player from a distance and will cast long-range spells
 * AI enemies will chase player
 * Cooldown delay between the casting of each magic spell
@@ -26,17 +26,19 @@ The game is set in a village occupied by villagers and villains. As you enter it
 * Bubble sort algorithm in the SkillBook blueprint
   * Used to sort the spells appearing in each SkillBook in the order in which they appear in the Loadout widget
 * Graph structure to manage the game endings in the GameEndingsManager blueprint (each game ending can be triggered by one or more missions)
-  * Used to efficiently store the completed missions and check if a ending is unlocked or not
+  * Used to store completed missions and to check if an ending is unlocked based on the requirements of the completed missions
   * Used 2 Maps: one to store the completed missions, and another one to store the game endings, also acting as a graph node, with a boolean "Unlocked"
 
 ## Files
 * **Data structures and algorithms integrated to SteamBound.pdf**: Detailed report on the changes that I made to the game, with explanations and code snippets for each data structure and algorithm. The playable version of the game with these changes can be found on the itch.io page (SteamBound 1.2)
 
 ## Bugs to fix/features to add
-* The checkpoints are not working correctly: when you go back to a checkpoint, the character cannot use the mouse to turn around and move properly
+* The checkpoints are not working correctly: when you go back to a checkpoint, the character cannot use the mouse to turn around
 * The enemies shoot at their own allies
 * Add the town statistics to show the crime and happiness levels
 * Add equipment system
-* Add statistics modification for different units
+* Add additional endings that depend on failed missions
 * Add wounded NPC state
+* Different units should have different HP and mana regeneration mana (not balanced yet)
+* Different elements should have different HP, attack power and speed
 
