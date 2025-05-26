@@ -30,12 +30,12 @@ The game is set in a village occupied by villagers and villains. As you enter it
   * Used 2 Maps: one to store the completed missions, and another one to store the game endings, also acting as a graph node, with a boolean "Unlocked"
 
 ## Files
-* **Data structures and algorithms integrated to SteamBound.pdf**: Detailed report on the changes that I made to the game, with explanations and code snippets for each data structure and algorithm
+* **Data structures and algorithms integrated to SteamBound.pdf**: Detailed report on the changes that I made to the game, with explanations and code snippets for each data structure and algorithm. The playable version of the game with these changes can be found on the itch.io page (SteamBound 1.2)
 
 ## Bugs to fix/features to add
 * The checkpoints are not working correctly: when you go back to a checkpoint, the character cannot use the mouse to turn around and move properly
 * The enemies shoot at their own allies
-* Add the town statistics to show the crime level
+* Add the town statistics to show the crime and happiness levels
 * Add equipment system
 * Add statistics modification for different units
 * Add wounded NPC state
