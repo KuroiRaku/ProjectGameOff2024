@@ -10,7 +10,7 @@ The game is set in a village occupied by villagers and villains. As you enter it
 ## Features
 * Ability to alternate between first-person mode and top-down mode
 * Ability to customize spells and use different spell combinations to fight enemies and counter enemy attacks
-* Different Attributes (Elements/Speed/Size/Shape) contributes to different final speed, HP, attack power 
+* Different spell attributes (Elements/Speed/Size/Shape) contributes to different final speed, HP, attack power 
 * Ability to adjust spell attributes solely to heal yourself
 * Ally AI can assist in combat using spells to counter the spells casted by enemies
 * AI enemies will detect player from a distance and will cast long-range spells
@@ -41,5 +41,5 @@ The game is set in a village occupied by villagers and villains. As you enter it
 * Add additional endings that depend on failed missions
 * Add wounded NPC state
 * Different units should have different HP and mana regeneration mana (not balanced yet)
-* Create a Class System so that player can start with different unlocked spells attribute
+* Create create a class system so that player can start with different unlocked spells attribute
 
