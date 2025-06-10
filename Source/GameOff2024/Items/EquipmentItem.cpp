@@ -3,3 +3,7 @@
 
 #include "EquipmentItem.h"
 
+AEquipmentItem::AEquipmentItem()
+{
+	StatsAdjustment = CreateDefaultSubobject<UStatsComponent>(TEXT("Stats Component"));
+}

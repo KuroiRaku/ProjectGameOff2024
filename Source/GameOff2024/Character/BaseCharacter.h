@@ -14,6 +14,14 @@ class UBehaviorTree;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
+UENUM(BlueprintType)
+enum class EEquipmentSlot : uint8
+{
+	Body UMETA(DisplayName = "Body"),
+	LeftHand UMETA(DisplayName = "LeftHand"),
+	RightHand UMETA(DisplayName = "RightHand")
+};
+
 UCLASS(config = Game)
 class ABaseCharacter : public ACharacter
 {
